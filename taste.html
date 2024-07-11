@@ -121,17 +121,17 @@ nav ul li a:hover {
                  }
               },
               writeData:function()//输出数据
-              {
-                 var dataHtml = "", data = "";
-                  for(var i = localStorage.length-1; i >= 0; i--)//效率更高的循环方法
-                  {
-                      data = localStorage.getItem(localStorage.key(i)).split("|");
- 
-                          //dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span><span>" + data[2]+"</span></p>";
-                      dataHtml += "<span style=>" + data[1] + "<span style=\"float:right\">" + data[2] + "</span><p><span class=\"msg\">" + data[0] + "<input style=\"float:right;border:none;border-radius:5px;\" id=\"clearBt\" type=\"button\" onclick=\"delete1(" + localStorage.key(i) + ");\" value=\"删除\"/>" + "</span></p>";
-                  }
-                  document.getElementById("comment").innerHTML = dataHtml;
-              },
+    {
+        var dataHtml = "", data = "";
+        for(var i = 0; i < localStorage.length; i++) // 改为从前往后循环
+        {
+            data = localStorage.getItem(localStorage.key(i)).split("|");
+
+            //dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span><span>" + data[2]+"</span></p>";
+            dataHtml += "<span style=>" + data[1] + "<span style=\"float:right\">" + data[2] + "</span><p><span class=\"msg\">" + data[0] + "<input style=\"float:right;border:none;border-radius:5px;\" id=\"clearBt\" type=\"button\" onclick=\"delete1(" + localStorage.key(i) + ");\" value=\"删除\"/>" + "</span></p>";
+        }
+        document.getElementById("comment").innerHTML = dataHtml;
+    },
               clearData:function()//清空数据
               {
                   if(localStorage.length > 0)
